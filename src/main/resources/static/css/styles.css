@@ -1,0 +1,185 @@
+/* 🔹 Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffc0cb; /* Fondo rosado */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 🔹 Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 900px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* 🔹 Barra de Navegación */
+.navbar {
+    width: 100%;
+    background-color: #d6336c; /* Rosado oscuro */
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white !important;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-decoration: none;
+    margin: 0 15px;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #b82b5c !important;
+    border-radius: 5px;
+}
+
+/* 🔹 Títulos en negro */
+h1, h2, h3 {
+    color: #000 !important; /* Ahora los títulos son negros */
+    margin-bottom: 20px;
+    margin-top: 60px;
+}
+
+/* 🔹 Estilos de los botones */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    text-decoration: none;
+    color: white !important;
+    background-color: #28a745 !important; /* Verde */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #218838 !important;
+}
+
+/* 🔹 Botón de eliminar */
+.btn-delete {
+    background-color: #bc1828 !important; /* Rojo oscuro */
+}
+
+.btn-delete:hover {
+    background-color: #a01010 !important; /* Más oscuro */
+}
+
+/* 🔹 Contenedor de botones en tablas */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre botones */
+}
+
+.actions form {
+    display: inline;
+}
+
+/* 🔹 Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #d6336c; /* Mantiene el fondo rosado */
+    color: white;
+}
+
+/* 🔹 Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* 🔹 Estilos para etiquetas y campos del formulario */
+label {
+    font-weight: bold;
+    color: #000 !important; /* Negro */
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #444 !important;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* 🔹 Estilos del botón en el formulario */
+button {
+    padding: 10px;
+    background-color: #000 !important; /* Negro */
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #333 !important; /* Gris oscuro */
+}
+
+/* 🔹 Responsivo */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        font-size: 12px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+}

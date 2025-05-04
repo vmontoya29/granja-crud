@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión Porcina</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/clientes">Clientes</a>
+        <a href="/alimentacion">Alimentación</a>
+        <a href="/porcinos">Porcinos</a>
+        <a href="/porcinos/reporte">Reporte Cliente Porcinos</a>
+    </div> </br>
+   
+    <div class="container">
+        <h1>Lista de Tipos de Alimentación</h1>
+        <a href="/alimentacion/nuevo" class="btn">Agregar Alimentación</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Descripción</th>
+                <th>Dosis</th>
+                <th>Acciones</th>
+            </tr>
+            <tr th:each="alimentacion : ${alimentaciones}">
+                <td th:text="${alimentacion.id}"></td>
+                <td th:text="${alimentacion.descripcion}"></td>
+                <td th:text="${alimentacion.dosis}"></td>
+                <td>
+                    <a th:href="@{/alimentacion/editar/{id}(id=${alimentacion.id})}" class="btn">Editar</a>
+                    <form th:action="@{/alimentacion/eliminar/{id}(id=${alimentacion.id})}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-delete" onclick="return confirm('¿Seguro que quieres eliminar este tipo de alimentación?')">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

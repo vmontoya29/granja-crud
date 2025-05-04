@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Porcino</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Porcino</h1>
+        <form th:action="@{/porcinos/guardar}" th:object="${porcino}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <label>Raza:</label>
+            <select th:field="*{raza}" required>
+            <option th:each="raza : ${T(com.granja.granja_crud.model.Raza).values()}" th:value="${raza}"th:text="${raza}">
+            </option>
+            </select><br>
+
+            <label>Edad:</label>
+            <input type="number" th:field="*{edad}" required><br>
+
+            <label>Peso (Kg):</label>
+            <input type="number" step="0.1" th:field="*{peso}" required><br>
+
+            <label>Cliente:</label>
+            <select th:field="*{cliente.cedula}" required>
+                <option th:each="cliente : ${clientes}" 
+                        th:value="${cliente.cedula}" 
+                        th:text="${cliente.nombres} + ' ' + ${cliente.apellidos}">
+                </option>
+            </select><br>
+
+            <label>Alimentación:</label>
+            <select th:field="*{alimentacion.id}" required>
+                <option th:each="alimentacion : ${alimentaciones}" 
+                        th:value="${alimentacion.id}" 
+                        th:text="${alimentacion.descripcion}">
+                </option>
+            </select><br>
+
+            <button type="submit">Guardar</button>
+        </form>
+        <br>
+        <a href="/porcinos" class="btn">Volver a la lista</a>
+    </div>
+</body>
+</html>

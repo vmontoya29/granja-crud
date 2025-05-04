@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestión Porcina</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/clientes">Clientes</a>
+        <a href="/alimentacion">Alimentación</a>
+        <a href="/porcinos">Porcinos</a>
+        <a href="/porcinos/reporte">Reporte Cliente Porcinos</a>
+    </div> </br>
+    
+    <div class="container">
+        <h1>Lista de Porcinos</h1>
+        <a href="/porcinos/nuevo" class="btn">Agregar Porcino</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Raza</th>
+                <th>Edad</th>
+                <th>Peso</th>
+                <th>Cliente</th>
+                <th>Alimentación</th>
+                <th>Acciones</th>
+            </tr>
+            <tr th:each="porcino : ${porcinos}">
+                <td th:text="${porcino.id}"></td>
+                <td th:text="${porcino.raza}"></td>
+                <td th:text="${porcino.edad}"></td>
+                <td th:text="${porcino.peso}"></td>
+                <td th:text="${porcino.cliente.nombres}"></td>
+                <td th:text="${porcino.alimentacion.descripcion}"></td>
+                <td>
+                    <a th:href="@{/porcinos/editar/{id}(id=${porcino.id})}" class="btn">Editar</a>
+                    <a th:href="@{/porcinos/eliminar/{id}(id=${porcino.id})}" class="btn btn-delete" onclick="return confirm('¿Seguro que quieres eliminar este porcino?')">Eliminar</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
